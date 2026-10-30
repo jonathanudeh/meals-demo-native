@@ -23,6 +23,7 @@ function MealsOverviewScreen({ route, navigation }) {
   function renderMealItem(itemData) {
     const item = itemData.item;
     const mealItemProps = {
+      id: item.id,
       title: item.title,
       imageUrl: item.imageUrl,
       affordability: item.affordability,
@@ -30,13 +31,7 @@ function MealsOverviewScreen({ route, navigation }) {
       duration: item.duration,
     };
 
-    function pressHandler() {
-      navigation.navigate("MealsDetails", {
-        mealId: item.id,
-      });
-    }
-
-    return <MealItem {...mealItemProps} onPress={pressHandler} />;
+    return <MealItem {...mealItemProps} />;
   }
 
   return (
